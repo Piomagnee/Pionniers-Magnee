@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE = "pionniers-magnee-v3";
+const CACHE = "pionniers-magnee-v5";
 
 const ASSETS = [
     "./",
@@ -15,7 +15,14 @@ const ASSETS = [
 
     "./cave/index.html",
     "./cave/app.js",
-    "./cave/qr-local.js"
+    "./cave/qr-local.js",
+
+    "./fluo/index.html",
+    "./fluo/app.js",
+    "./fluo/qr-local.js",
+
+    "./backyard/index.html",
+    "./backyard/app.js"
 ];
 
 self.addEventListener("install", event => {
