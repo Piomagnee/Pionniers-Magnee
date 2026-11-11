@@ -2,177 +2,321 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#FFF8F6">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Pionniers Magnée">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="logo-pionniers.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100D1B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pionniers">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../logo-pionniers.png">
+  <title>Fluo Night — Pionniers de Magnée</title>
+  <style>
+    * { box-sizing: border-box; }
 
-    <title>Pionniers de Magnée</title>
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #FFFFFF;
+      background:
+        radial-gradient(circle at 10% 0%, #4D155D 0, transparent 35%),
+        radial-gradient(circle at 100% 30%, #D4FF3F20 0, transparent 40%),
+        #100D1B;
+      padding: 65px 18px 24px;
+      display: flex;
+      justify-content: center;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    .app { width: min(460px, 100%); }
 
-        body {
-            margin: 0;
-            min-height: 100dvh;
-            padding: 30px 20px;
-            font-family: -apple-system, BlinkMacSystemFont,
-                         "Segoe UI", sans-serif;
-            background: #FFF8F6;
-            color: #333333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .hero {
+      text-align: center;
+      margin: 10px 0 22px;
+    }
 
-        .app {
-            width: min(420px, 100%);
-            text-align: center;
-        }
+    .badge {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #FF4FD860;
+      background: #FF4FD814;
+      color: #FF4FD8;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
 
-        .logo {
-            width: 145px;
-            height: 145px;
-            object-fit: contain;
-            margin-bottom: 18px;
-        }
+    .ticket { margin: 16px auto 10px; }
 
-        h1 {
-            color: #B00016;
-            font-size: 30px;
-            margin: 0;
-            font-weight: 900;
-        }
+    .ticket img {
+      width: 115px;
+      height: 115px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
 
-        .subtitle {
-            color: #777777;
-            font-size: 15px;
-            margin: 10px 0 35px;
-        }
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1;
+      font-weight: 1000;
+      color: #D4FF3F;
+    }
 
-        .events {
-            display: grid;
-            gap: 16px;
-        }
+    .sub {
+      margin: 8px 0 0;
+      color: #C6BED3;
+      font-size: 15px;
+    }
 
-        .event {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 23px 20px;
-            border-radius: 22px;
-            text-decoration: none;
-            text-align: left;
-            box-shadow: 0 12px 35px #80001015;
-            transition: transform .15s;
-        }
+    .card {
+      background: #211A30;
+      border: 1px solid #4A385B;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 25px 70px #0009;
+    }
 
-        .event:active {
-            transform: scale(.97);
-        }
+    label {
+      display: block;
+      margin-bottom: 9px;
+      color: #DDD4E8;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .05em;
+    }
 
-        .event-icon {
-            font-size: 38px;
-        }
+    .inputwrap { position: relative; }
 
-        .event-text {
-            flex: 1;
-        }
+    input {
+      width: 100%;
+      border: 1px solid #665077;
+      background: #151020;
+      color: #FFFFFF;
+      border-radius: 17px;
+      padding: 17px 58px 17px 17px;
+      font-size: 27px;
+      font-weight: 950;
+      outline: none;
+    }
 
-        .event-title {
-            display: block;
-            font-size: 21px;
-            font-weight: 900;
-        }
+    input:focus {
+      border-color: #D4FF3F;
+      box-shadow: 0 0 0 3px #D4FF3F17;
+    }
 
-        .event-subtitle {
-            display: block;
-            font-size: 12px;
-            margin-top: 5px;
-            opacity: .8;
-        }
+    .euro {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #D4FF3F;
+      font-size: 23px;
+      font-weight: 950;
+    }
 
-        .arrow {
-            font-size: 24px;
-            font-weight: bold;
-        }
+    .quick-title {
+      margin: 16px 0 8px;
+      color: #B5A8C1;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
-        .tombola {
-            background: #B00016;
-            color: #FFFFFF;
-        }
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
 
-        .cave {
-            background: #20180F;
-            color: #FFC04F;
-        }
+    .quick button {
+      min-height: 55px;
+      border: 1px solid #FF4FD8;
+      background: #FF4FD8;
+      color: #160D1D;
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+    }
 
-        .footer {
-            margin-top: 35px;
-            color: #888080;
-            font-size: 12px;
-        }
-    </style>
+    .quick button:active {
+      transform: scale(.96);
+      background: #D4FF3F;
+    }
+
+    .payment {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid #4A385B;
+      text-align: center;
+    }
+
+    .small {
+      color: #B5A8C1;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .amount {
+      margin: 7px 0 18px;
+      color: #D4FF3F;
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 1000;
+    }
+
+    .qr {
+      display: inline-flex;
+      padding: 14px;
+      background: #FFFFFF;
+      border-radius: 22px;
+      box-shadow: 0 0 35px #D4FF3F1A;
+    }
+
+    .qr canvas {
+      display: block;
+      width: min(260px, 67vw);
+      height: auto;
+      aspect-ratio: 1;
+      image-rendering: pixelated;
+    }
+
+    .hint {
+      max-width: 330px;
+      margin: 14px auto 0;
+      color: #C6BED3;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .reset {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid #665077;
+      border-radius: 15px;
+      background: #352542;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .details {
+      margin: 16px 0 0;
+      text-align: center;
+      color: #B5A8C1;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .details strong { color: #FF4FD8; }
+
+    .status {
+      text-align: center;
+      color: #B5A8C1;
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    .error {
+      color: #FF83BD;
+      min-height: 18px;
+      font-size: 12px;
+      margin-top: 7px;
+    }
+
+    .home-button {
+      position: fixed;
+      top: max(12px, env(safe-area-inset-top));
+      left: 12px;
+      z-index: 100;
+      padding: 10px 15px;
+      background: #D4FF3F;
+      color: #160D1D;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px #0002;
+    }
+
+    @media (max-width: 370px) {
+      h1 { font-size: 32px; }
+      .card { padding: 18px; }
+      .amount { font-size: 46px; }
+      .quick button { font-size: 17px; }
+    }
+  </style>
 </head>
-
 <body>
-    <main class="app">
+  <a href="../index.html" class="home-button">← Accueil</a>
 
-        <img class="logo"
-             src="logo-pionniers.png"
-             alt="Logo des Pionniers de Magnée">
+  <main class="app">
+    <header class="hero">
+      <span class="badge">PIONNIERS DE MAGNÉE</span>
+      <div class="ticket">
+        <img src="../logo-pionniers.png" alt="Logo des Pionniers de Magnée">
+      </div>
+      <h1>Fluo Night</h1>
+      <p class="sub">Paiement par QR code · Hors ligne</p>
+    </header>
 
-        <h1>Pionniers de Magnée</h1>
-        <p class="subtitle">Choisissez votre événement</p>
+    <section class="card">
+      <label for="amount">MONTANT À PAYER</label>
+      <div class="inputwrap">
+        <input id="amount" type="text" inputmode="decimal"
+               autocomplete="off" placeholder="Ex. 10"
+               aria-describedby="error">
+        <span class="euro">€</span>
+      </div>
 
-        <div class="events">
+      <div class="error" id="error" role="status"></div>
 
-            <a class="event tombola"
-               href="tombola/index.html">
-                <span class="event-icon">🎟️</span>
-                <span class="event-text">
-                    <span class="event-title">Tombola</span>
-                    <span class="event-subtitle">
-                        Paiement par QR code
-                    </span>
-                </span>
-                <span class="arrow">›</span>
-            </a>
+      <p class="quick-title">Montants rapides</p>
+      <div class="quick">
+        <button type="button" data-value="5">5 €</button>
+        <button type="button" data-value="10">10 €</button>
+        <button type="button" data-value="20">20 €</button>
+      </div>
 
-            <a class="event cave"
-               href="cave/index.html">
-                <span class="event-icon">🍺</span>
-                <span class="event-text">
-                    <span class="event-title">Cave à bière</span>
-                    <span class="event-subtitle">
-                        Paiement par QR code
-                    </span>
-                </span>
-                <span class="arrow">›</span>
-            </a>
-
+      <div class="payment">
+        <div class="small">Montant à payer</div>
+        <div class="amount" id="display">10,00 €</div>
+        <div class="qr">
+          <canvas id="qr" width="290" height="290"
+                  role="img" aria-label="QR code de paiement"></canvas>
         </div>
-
-        <p class="footer">
-            Pionniers de Magnée · Paiements sécurisés par
-            votre application bancaire
+        <p class="hint">
+          Scanne le QR avec ton application bancaire et vérifie
+          le bénéficiaire, le montant et la communication avant
+          de confirmer.
         </p>
+        <button type="button" class="reset" id="reset">
+          Nouveau paiement
+        </button>
+      </div>
+    </section>
 
-    </main>
+    <p class="details">
+      <strong>Desmare Guillaume</strong>
+      <br>
+      BE60 0829 3880 9470
+      <br>
+      Communication : Fluo Night PI Magnee
+    </p>
 
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("./sw.js")
-                    .catch(console.error);
-            });
-        }
-    </script>
+    <p class="status" id="status">
+      QR généré localement · Aucune donnée envoyée
+    </p>
+  </main>
+
+  <script src="qr-local.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
