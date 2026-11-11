@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#FFF8F6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Pionniers Magnée">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="logo-pionniers.png">
+
+    <title>Pionniers de Magnée</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100dvh;
+            padding: 30px 20px;
+            font-family: -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            background: #FFF8F6;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app {
+            width: min(420px, 100%);
+            text-align: center;
+        }
+
+        .logo {
+            width: 145px;
+            height: 145px;
+            object-fit: contain;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            color: #B00016;
+            font-size: 30px;
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            color: #777777;
+            font-size: 15px;
+            margin: 10px 0 35px;
+        }
+
+        .events {
+            display: grid;
+            gap: 16px;
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 23px 20px;
+            border-radius: 22px;
+            text-decoration: none;
+            text-align: left;
+            box-shadow: 0 12px 35px #80001015;
+            transition: transform .15s;
+        }
+
+        .event:active {
+            transform: scale(.97);
+        }
+
+        .event-icon {
+            font-size: 38px;
+        }
+
+        .event-text {
+            flex: 1;
+        }
+
+        .event-title {
+            display: block;
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+        .event-subtitle {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+            opacity: .8;
+        }
+
+        .arrow {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .tombola {
+            background: #B00016;
+            color: #FFFFFF;
+        }
+
+        .cave {
+            background: #20180F;
+            color: #FFC04F;
+        }
+
+        .footer {
+            margin-top: 35px;
+            color: #888080;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="app">
+
+        <img class="logo"
+             src="logo-pionniers.png"
+             alt="Logo des Pionniers de Magnée">
+
+        <h1>Pionniers de Magnée</h1>
+        <p class="subtitle">Choisissez votre événement</p>
+
+        <div class="events">
+
+            <a class="event tombola"
+               href="tombola/index.html">
+                <span class="event-icon">🎟️</span>
+                <span class="event-text">
+                    <span class="event-title">Tombola</span>
+                    <span class="event-subtitle">
+                        Paiement par QR code
+                    </span>
+                </span>
+                <span class="arrow">›</span>
+            </a>
+
+            <a class="event cave"
+               href="cave/index.html">
+                <span class="event-icon">🍺</span>
+                <span class="event-text">
+                    <span class="event-title">Cave à bière</span>
+                    <span class="event-subtitle">
+                        Paiement par QR code
+                    </span>
+                </span>
+                <span class="arrow">›</span>
+            </a>
+
+        </div>
+
+        <p class="footer">
+            Pionniers de Magnée · Paiements sécurisés par
+            votre application bancaire
+        </p>
+
+    </main>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./sw.js")
+                    .catch(console.error);
+            });
+        }
+    </script>
+</body>
+</html>
