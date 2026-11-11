@@ -102,8 +102,8 @@ document.querySelectorAll("[data-value]").forEach(button => {
 
 document.getElementById("reset").addEventListener("click", () => {
   input.value = "";
-  createPayment(5);
+  createPayment(10);
   input.focus();
 });
 
-createPayment(5);
+createPayment(10);
