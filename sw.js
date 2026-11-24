@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE = "pionniers-magnee-v5";
+const CACHE = "pionniers-magnee-v10";
 
 const ASSETS = [
     "./",
