@@ -1,8 +1,8 @@
 
 "use strict";
 
-const BENEFICIARY = "Desmaré Guillaume";
-const IBAN = "BE60082938809470";
+const BENEFICIARY = "Pionniers de Magnée";
+const IBAN = "BE87068954059994";
 const BIC = "GKCCBEBB";
 const COMMUNICATION = "Fluo Night PI Magnee";
 
