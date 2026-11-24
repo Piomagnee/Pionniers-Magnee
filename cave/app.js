@@ -1,6 +1,6 @@
 "use strict";
-const BENEFICIARY = "Desmaré Guillaume"; // EPC QR: ASCII-compatible beneficiary name
-const IBAN = "BE60082938809470";
+const BENEFICIARY = "Pionniers de Magnée"; // EPC QR: ASCII-compatible beneficiary name
+const IBAN = "BE87068954059994";
 const BIC = "GKCCBEBB";
 const COMMUNICATION = "Cave a biere PI Magnee";
 const input = document.getElementById("amount");
